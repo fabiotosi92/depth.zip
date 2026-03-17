@@ -26,6 +26,86 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    /* ── Curtain slider ───────────────────────────────── */
+    .curtain-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: col-resize;
+      user-select: none;
+      background: #000;
+    }
+    .curtain-wrap video {
+      display: block;
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+    .curtain-top {
+      position: absolute;
+      top: 0; left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .curtain-top video {
+      width: auto;         /* keep natural aspect */
+      height: 100%;
+      max-width: none;
+    }
+    .curtain-divider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 0 6px rgba(0,0,0,0.6);
+      pointer-events: none;
+      z-index: 10;
+    }
+    .curtain-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 11;
+    }
+    .curtain-handle::before {
+      content: "◀ ▶";
+      font-size: 10px;
+      color: #333;
+      letter-spacing: -1px;
+    }
+    .curtain-label-left,
+    .curtain-label-right {
+      position: absolute;
+      top: 12px;
+      padding: 3px 10px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 4px;
+      z-index: 12;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .curtain-label-left  { left:  12px; }
+    .curtain-label-right { right: 12px; }
+
     .placeholder-video {
       background: #1a1a2e;
       display: flex;
@@ -237,6 +317,73 @@
     </div>
   </div>
 </section>
+
+<!-- ── RGB / DEPTH COMPARISON SLIDER ─────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">RGB vs. Depth</h2>
+    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
+      <p>Drag the slider to reveal the RGB image or the predicted depth map.</p>
+    </div>
+
+    <div class="curtain-wrap" id="curtain">
+      <!-- bottom layer: depth (full width, always visible) -->
+      <video id="vid-depth" autoplay muted loop playsinline>
+        <source src="./static/videos/video_depth_1000frames_896x512.mp4" type="video/mp4">
+      </video>
+      <!-- top layer: RGB clipped to left portion -->
+      <div class="curtain-top" id="curtain-top">
+        <video id="vid-rgb" autoplay muted loop playsinline>
+          <source src="./static/videos/video_rgb_1000frames_896x512.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- divider line + handle -->
+      <div class="curtain-divider" id="curtain-divider"></div>
+      <div class="curtain-handle"  id="curtain-handle"></div>
+      <!-- labels -->
+      <span class="curtain-label-left">RGB</span>
+      <span class="curtain-label-right">Depth</span>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  const wrap     = document.getElementById('curtain');
+  const top      = document.getElementById('curtain-top');
+  const divider  = document.getElementById('curtain-divider');
+  const handle   = document.getElementById('curtain-handle');
+  const vidRgb   = document.getElementById('vid-rgb');
+  const vidDepth = document.getElementById('vid-depth');
+  let dragging   = false;
+
+  function setPos(pct) {
+    pct = Math.max(2, Math.min(98, pct));
+    top.style.width         = pct + '%';
+    divider.style.left      = pct + '%';
+    handle.style.left       = pct + '%';
+  }
+
+  function onMove(clientX) {
+    const rect = wrap.getBoundingClientRect();
+    setPos((clientX - rect.left) / rect.width * 100);
+  }
+
+  wrap.addEventListener('mousedown',  e => { dragging = true; onMove(e.clientX); });
+  wrap.addEventListener('touchstart', e => { dragging = true; onMove(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('mousemove',  e => { if (dragging) onMove(e.clientX); });
+  window.addEventListener('touchmove',  e => { if (dragging) onMove(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('mouseup',  () => dragging = false);
+  window.addEventListener('touchend', () => dragging = false);
+
+  /* keep videos in sync */
+  vidDepth.addEventListener('timeupdate', () => {
+    if (Math.abs(vidRgb.currentTime - vidDepth.currentTime) > 0.1)
+      vidRgb.currentTime = vidDepth.currentTime;
+  });
+})();
+</script>
 
 <!-- ── QUALITATIVE RESULTS ────────────────────────────── -->
 <section class="section" style="background: #fafafa;">
