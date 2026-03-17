@@ -310,7 +310,32 @@
   </div>
 </section>
 
-<!-- ── SLIDER 1 — OUTDOOR ─────────────────────────────── -->
+<!-- ── SLIDER 1 — DRIVING ─────────────────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">RGB vs. Depth — Driving</h2>
+    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
+      <p>Drag the slider to reveal the RGB image or the predicted depth map.</p>
+    </div>
+    <div class="curtain-wrap" id="curtain2">
+      <video id="vid-depth2" autoplay muted loop playsinline>
+        <source src="./static/videos/rome_depth.mp4" type="video/mp4">
+      </video>
+      <div class="curtain-top" id="curtain-top2">
+        <video id="vid-rgb2" autoplay muted loop playsinline>
+          <source src="./static/videos/rome_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="curtain-divider" id="curtain-divider2"></div>
+      <div class="curtain-handle"  id="curtain-handle2"></div>
+      <span class="curtain-label-left">RGB</span>
+      <span class="curtain-label-right">Depth</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── SLIDER 2 — OUTDOOR ─────────────────────────────── -->
 <section class="section" style="background: #fafafa;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">RGB vs. Depth — Outdoor</h2>
@@ -334,29 +359,6 @@
   </div>
 </section>
 
-<!-- ── SLIDER 2 — DRIVING ─────────────────────────────── -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">RGB vs. Depth — Driving</h2>
-    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
-      <p>Drag the slider to reveal the RGB image or the predicted depth map.</p>
-    </div>
-    <div class="curtain-wrap" id="curtain2">
-      <video id="vid-depth2" autoplay muted loop playsinline>
-        <source src="./static/videos/rome_depth.mp4" type="video/mp4">
-      </video>
-      <div class="curtain-top" id="curtain-top2">
-        <video id="vid-rgb2" autoplay muted loop playsinline>
-          <source src="./static/videos/rome_rgb.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="curtain-divider" id="curtain-divider2"></div>
-      <div class="curtain-handle"  id="curtain-handle2"></div>
-      <span class="curtain-label-left">RGB</span>
-      <span class="curtain-label-right">Depth</span>
-    </div>
-  </div>
-</section>
 
 <!-- ── CURTAIN SLIDER LOGIC ───────────────────────────── -->
 <script>
