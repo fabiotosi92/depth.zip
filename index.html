@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Depth.zip: Real-time zero-shot monocular depth estimation on mobile devices.">
-  <meta name="keywords" content="Depth Estimation, Monocular Depth, Mobile AI, Real-time, Embedded">
+        content="Depth.zip: Real-time monocular depth estimation on mobile devices.">
+  <meta name="keywords" content="Depth Estimation, Monocular Depth, Mobile AI, Real-time">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Depth.zip: Real-Time Monocular Depth on Mobile</title>
 
@@ -86,12 +86,12 @@
             <span class="dzip">Depth.zip</span>
             <span class="tag-badge">CVPR 2026 Demo</span>
           </h1>
-          <h2 class="title is-3" style="margin-top:0.4em; color:#4a4a4a;">
-            Real-Time Zero-Shot Monocular Depth on Mobile
+          <h2 class="title is-3" style="margin-top: 0.4em; color: #4a4a4a;">
+            Real-Time Monocular Depth Estimation on Mobile Devices
           </h2>
 
           <!-- AUTHORS -->
-          <div class="is-size-5 publication-authors" style="margin-top:1em;">
+          <div class="is-size-5 publication-authors" style="margin-top: 1em;">
             <span class="author-block">
               <a href="https://fabiotosi92.github.io">Fabio Tosi</a><sup>1</sup>,
             </span>
@@ -106,32 +106,8 @@
             </span>
           </div>
 
-          <div class="is-size-5 publication-authors" style="margin-top:0.4em;">
-            <span class="author-block">
-              <sup>1</sup>University of Bologna
-            </span>
-          </div>
-
-          <!-- LINKS -->
-          <div class="column has-text-centered" style="margin-top:1em;">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://github.com/fabiotosi92/depth.zip"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
-              </span>
-              <!-- arXiv — uncomment when available
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              -->
-            </div>
+          <div class="is-size-5 publication-authors" style="margin-top: 0.4em;">
+            <span class="author-block"><sup>1</sup>University of Bologna</span>
           </div>
 
         </div>
@@ -144,16 +120,17 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- PLACEHOLDER: replace with your hero video -->
+      <!-- Replace with your hero video -->
       <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video> -->
       <div class="placeholder-video">
         [ Hero video — live depth on iPhone · placeholder ]
       </div>
-      <h2 class="subtitle has-text-centered" style="margin-top:1.2em;">
-        <span class="dzip">Depth.zip</span> runs <strong>real-time monocular depth estimation
-        directly on your iPhone</strong> — no cloud, no fine-tuning, no domain restrictions.
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.2em;">
+        <span class="dzip">Depth.zip</span> estimates depth from a single image
+        <strong>in real time, directly on your iPhone</strong> —
+        no internet connection, no setup, no restrictions on scene type.
       </h2>
     </div>
   </div>
@@ -164,34 +141,32 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-
         <div class="item">
-          <div class="placeholder-video" style="min-height:220px;">
+          <div class="placeholder-video" style="min-height: 220px;">
             [ Indoor scene · placeholder ]
           </div>
         </div>
         <div class="item">
-          <div class="placeholder-video" style="min-height:220px;">
+          <div class="placeholder-video" style="min-height: 220px;">
             [ Outdoor scene · placeholder ]
           </div>
         </div>
         <div class="item">
-          <div class="placeholder-video" style="min-height:220px;">
+          <div class="placeholder-video" style="min-height: 220px;">
             [ Driving scene · placeholder ]
           </div>
         </div>
         <div class="item">
-          <div class="placeholder-video" style="min-height:220px;">
+          <div class="placeholder-video" style="min-height: 220px;">
             [ Close-up objects · placeholder ]
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ABSTRACT ───────────────────────────────────────── -->
+<!-- ── OVERVIEW ───────────────────────────────────────── -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -199,23 +174,20 @@
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
-            <span class="dzip">Depth.zip</span> is a lightweight monocular depth estimation
-            network designed for <strong>zero-shot cross-domain generalisation</strong> on
-            resource-constrained hardware — from embedded processors to mobile NPUs and
-            smartphone neural engines.
+            <span class="dzip">Depth.zip</span> is a monocular depth estimation system
+            that runs in real time on commodity mobile hardware.
+            Given a single RGB image, it produces a dense depth map covering the full
+            field of view — instantly, on device.
           </p>
           <p>
-            The model is trained entirely via <strong>knowledge distillation</strong> from a
-            large-scale teacher network, without ever seeing metric ground-truth depth at
-            training time. At inference, it produces full-resolution affine-invariant depth
-            maps in <strong>real time on iPhone</strong>, with no domain-specific fine-tuning
-            required.
+            The system generalizes across drastically different environments out of the box:
+            indoor rooms, outdoor scenes, urban streets, and unstructured settings —
+            all without any scene-specific configuration or retraining.
           </p>
           <p>
-            A hardware-adaptive upsampling module provides two computational paths — one
-            optimised for GPU/TensorRT and one for mobile NPUs (Apple Neural Engine,
-            Qualcomm AI Engine) — allowing the same model to be deployed across
-            heterogeneous devices without retraining.
+            Our goal is to bring accurate, responsive depth perception to everyday devices,
+            opening the door to real-world applications in augmented reality,
+            robotics, accessibility, and computational photography.
           </p>
         </div>
       </div>
@@ -224,20 +196,23 @@
 </section>
 
 <!-- ── LIVE ON DEVICE ─────────────────────────────────── -->
-<section class="section" style="background:#fafafa;">
+<section class="section" style="background: #fafafa;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Live on Device</h2>
-    <div class="content has-text-justified has-text-centered" style="margin-bottom:1.5em;">
+    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
       <p>
-        The model runs entirely on-device via Apple Neural Engine —
-        no internet connection required.
+        The full pipeline runs on-device with no cloud dependency —
+        point your iPhone at any scene and get depth instantly.
       </p>
     </div>
     <div class="columns is-centered">
       <div class="column is-half">
-        <!-- PLACEHOLDER: replace with iPhone demo video -->
+        <!-- Replace with iPhone demo video -->
+        <!-- <video autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/iphone_demo.mp4" type="video/mp4">
+        </video> -->
         <div class="placeholder-video">
-          [ iPhone live demo video · placeholder ]
+          [ iPhone live demo · placeholder ]
         </div>
       </div>
     </div>
@@ -247,14 +222,16 @@
 <!-- ── CROSS-DOMAIN ───────────────────────────────────── -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Zero-Shot Cross-Domain Generalisation</h2>
-    <div class="content has-text-justified has-text-centered" style="margin-bottom:1.5em;">
+    <h2 class="title is-3 has-text-centered">Works Everywhere, Out of the Box</h2>
+    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
       <p>
-        A single model — no fine-tuning — across indoor, outdoor, driving, and
-        unstructured scenes.
+        One model. No fine-tuning. Across indoor, outdoor, driving, and beyond.
       </p>
     </div>
-    <!-- PLACEHOLDER: replace with cross-domain video -->
+    <!-- Replace with cross-domain video -->
+    <!-- <video autoplay muted loop playsinline width="100%">
+      <source src="./static/videos/cross_domain.mp4" type="video/mp4">
+    </video> -->
     <div class="placeholder-video">
       [ Cross-domain video: indoor → outdoor → driving · placeholder ]
     </div>
@@ -262,50 +239,51 @@
 </section>
 
 <!-- ── QUALITATIVE RESULTS ────────────────────────────── -->
-<section class="section" style="background:#fafafa;">
+<section class="section" style="background: #fafafa;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-
-    <div class="columns is-centered" style="margin-top:1em;">
+    <div class="columns is-centered" style="margin-top: 1em;">
       <div class="column">
-        <!-- PLACEHOLDER -->
-        <div class="placeholder-video" style="min-height:200px;">
-          [ Qualitative — indoor · placeholder ]
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_indoor.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Indoor · placeholder ]
         </div>
-        <p class="has-text-centered" style="margin-top:0.5em; color:#888;">Indoor</p>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Indoor</p>
       </div>
       <div class="column">
-        <div class="placeholder-video" style="min-height:200px;">
-          [ Qualitative — outdoor · placeholder ]
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_outdoor.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Outdoor · placeholder ]
         </div>
-        <p class="has-text-centered" style="margin-top:0.5em; color:#888;">Outdoor</p>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Outdoor</p>
       </div>
       <div class="column">
-        <div class="placeholder-video" style="min-height:200px;">
-          [ Qualitative — driving · placeholder ]
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_driving.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Driving · placeholder ]
         </div>
-        <p class="has-text-centered" style="margin-top:0.5em; color:#888;">Driving</p>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Driving</p>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ── FOOTER ─────────────────────────────────────────── -->
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/fabiotosi92/depth.zip">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content has-text-centered">
-          <p style="color:#aaa; font-size:0.85rem;">
+          <p style="color: #aaa; font-size: 0.85rem;">
             Website template from
-            <a href="https://github.com/nerfies/nerfies.github.io" style="color:#aaa;">Nerfies</a>.
-            CVPR 2026 Demo — University of Bologna.
+            <a href="https://github.com/nerfies/nerfies.github.io" style="color: #aaa;">Nerfies</a>.
+            CVPR 2026 Demo &mdash; University of Bologna.
           </p>
         </div>
       </div>
