@@ -387,6 +387,8 @@
 
 <!-- ── CURTAIN SLIDER LOGIC ───────────────────────────── -->
 <script>
+let activeCurtain = null;
+
 function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   const wrap     = document.getElementById(wrapId);
   const top      = document.getElementById(topId);
@@ -394,7 +396,6 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   const handle   = document.getElementById(handleId);
   const vidRgb   = document.getElementById(rgbId);
   const vidDepth = document.getElementById(depthId);
-  let dragging   = false;
 
   function setPos(pct) {
     pct = Math.max(2, Math.min(98, pct));
@@ -408,12 +409,23 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
     setPos((clientX - rect.left) / rect.width * 100);
   }
 
-  wrap.addEventListener('mousedown',  e => { dragging = true; onMove(e.clientX); });
-  wrap.addEventListener('touchstart', e => { dragging = true; onMove(e.touches[0].clientX); }, {passive: true});
-  window.addEventListener('mousemove',  e => { if (dragging) onMove(e.clientX); });
-  window.addEventListener('touchmove',  e => { if (dragging) onMove(e.touches[0].clientX); }, {passive: true});
-  window.addEventListener('mouseup',  () => dragging = false);
-  window.addEventListener('touchend', () => dragging = false);
+  wrap.addEventListener('mousedown', e => {
+    activeCurtain = wrapId;
+    onMove(e.clientX);
+  });
+  wrap.addEventListener('touchstart', e => {
+    activeCurtain = wrapId;
+    onMove(e.touches[0].clientX);
+  }, {passive: true});
+
+  window.addEventListener('mousemove', e => {
+    if (activeCurtain === wrapId) onMove(e.clientX);
+  });
+  window.addEventListener('touchmove', e => {
+    if (activeCurtain === wrapId) onMove(e.touches[0].clientX);
+  }, {passive: true});
+  window.addEventListener('mouseup',  () => { if (activeCurtain === wrapId) activeCurtain = null; });
+  window.addEventListener('touchend', () => { if (activeCurtain === wrapId) activeCurtain = null; });
 
   vidDepth.addEventListener('timeupdate', () => {
     if (Math.abs(vidRgb.currentTime - vidDepth.currentTime) > 0.1)
@@ -421,8 +433,9 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   });
 }
 
-makeCurtain('curtain1', 'curtain-top1', 'curtain-divider1', 'curtain-handle1', 'vid-rgb1', 'vid-depth1');
 makeCurtain('curtain2', 'curtain-top2', 'curtain-divider2', 'curtain-handle2', 'vid-rgb2', 'vid-depth2');
+makeCurtain('curtain3', 'curtain-top3', 'curtain-divider3', 'curtain-handle3', 'vid-rgb3', 'vid-depth3');
+makeCurtain('curtain1', 'curtain-top1', 'curtain-divider1', 'curtain-handle1', 'vid-rgb1', 'vid-depth1');
 </script>
 
 <!-- ── FOOTER ─────────────────────────────────────────── -->
