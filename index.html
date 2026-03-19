@@ -338,8 +338,6 @@
 </section>
 
 <script>
-let activeImgCurtain = null;
-
 function makeImgCurtain(wrapId, topId, dividerId, handleId) {
   const wrap    = document.getElementById(wrapId);
   const top     = document.getElementById(topId);
@@ -359,20 +357,14 @@ function makeImgCurtain(wrapId, topId, dividerId, handleId) {
     setPos((clientX - rect.left) / rect.width * 100);
   }
 
-  wrap.addEventListener('mousedown', e => {
-    activeImgCurtain = wrapId; onMove(e.clientX);
-  });
-  wrap.addEventListener('touchstart', e => {
-    activeImgCurtain = wrapId; onMove(e.touches[0].clientX);
-  }, {passive: true});
-  window.addEventListener('mousemove', e => {
-    if (activeImgCurtain === wrapId) onMove(e.clientX);
-  });
-  window.addEventListener('touchmove', e => {
-    if (activeImgCurtain === wrapId) onMove(e.touches[0].clientX);
-  }, {passive: true});
-  window.addEventListener('mouseup',  () => { if (activeImgCurtain === wrapId) activeImgCurtain = null; });
-  window.addEventListener('touchend', () => { if (activeImgCurtain === wrapId) activeImgCurtain = null; });
+  /* hover — nessun click richiesto */
+  wrap.addEventListener('mousemove', e => onMove(e.clientX));
+
+  /* touch — serve touchmove per mobile */
+  wrap.addEventListener('touchmove', e => {
+    e.preventDefault();
+    onMove(e.touches[0].clientX);
+  }, {passive: false});
 }
 
 makeImgCurtain('img-curtain1', 'img-curtain-top1', 'img-curtain-divider1', 'img-curtain-handle1');
