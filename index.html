@@ -212,35 +212,107 @@
   </div>
 </section>
 
-<!-- ── CAROUSEL ───────────────────────────────────────── -->
+<!-- ── CAROUSEL WITH IMAGE CURTAIN SLIDERS ────────────── -->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
+
+        <!-- ITEM 1 — Outdoor -->
         <div class="item">
-          <div class="placeholder-video" style="min-height: 220px;">
-            [ Indoor scene · placeholder ]
+          <div class="curtain-wrap img-curtain" id="img-curtain1">
+            <img id="img-depth1" src="./static/images/29768273053_b2f1a7b7ca_h_depth.jpg" style="width:100%; display:block;">
+            <div class="curtain-top" id="img-curtain-top1">
+              <img id="img-rgb1" src="./static/images/29768273053_b2f1a7b7ca_h.jpg" style="height:100%; width:auto; max-width:none;">
+            </div>
+            <div class="curtain-divider" id="img-curtain-divider1"></div>
+            <div class="curtain-handle"  id="img-curtain-handle1"></div>
+            <span class="curtain-label-left">RGB</span>
+            <span class="curtain-label-right">Depth</span>
           </div>
         </div>
+
+        <!-- ITEM 2 — Driving -->
         <div class="item">
-          <div class="placeholder-video" style="min-height: 220px;">
-            [ Outdoor scene · placeholder ]
+          <div class="curtain-wrap img-curtain" id="img-curtain2">
+            <img id="img-depth2" src="./static/images/driving_depth.jpg" style="width:100%; display:block;">
+            <div class="curtain-top" id="img-curtain-top2">
+              <img id="img-rgb2" src="./static/images/driving_rgb.jpg" style="height:100%; width:auto; max-width:none;">
+            </div>
+            <div class="curtain-divider" id="img-curtain-divider2"></div>
+            <div class="curtain-handle"  id="img-curtain-handle2"></div>
+            <span class="curtain-label-left">RGB</span>
+            <span class="curtain-label-right">Depth</span>
           </div>
         </div>
+
+        <!-- ITEM 3 — Nighttime -->
         <div class="item">
-          <div class="placeholder-video" style="min-height: 220px;">
-            [ Driving scene · placeholder ]
+          <div class="curtain-wrap img-curtain" id="img-curtain3">
+            <img id="img-depth3" src="./static/images/night_depth.jpg" style="width:100%; display:block;">
+            <div class="curtain-top" id="img-curtain-top3">
+              <img id="img-rgb3" src="./static/images/night_rgb.jpg" style="height:100%; width:auto; max-width:none;">
+            </div>
+            <div class="curtain-divider" id="img-curtain-divider3"></div>
+            <div class="curtain-handle"  id="img-curtain-handle3"></div>
+            <span class="curtain-label-left">RGB</span>
+            <span class="curtain-label-right">Depth</span>
           </div>
         </div>
+
+        <!-- ITEM 4 — Indoor (placeholder) -->
         <div class="item">
-          <div class="placeholder-video" style="min-height: 220px;">
-            [ Close-up objects · placeholder ]
+          <div class="curtain-wrap img-curtain" id="img-curtain4">
+            <img id="img-depth4" src="./static/images/indoor_depth.jpg" style="width:100%; display:block;">
+            <div class="curtain-top" id="img-curtain-top4">
+              <img id="img-rgb4" src="./static/images/indoor_rgb.jpg" style="height:100%; width:auto; max-width:none;">
+            </div>
+            <div class="curtain-divider" id="img-curtain-divider4"></div>
+            <div class="curtain-handle"  id="img-curtain-handle4"></div>
+            <span class="curtain-label-left">RGB</span>
+            <span class="curtain-label-right">Depth</span>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </section>
+
+<script>
+function makeImgCurtain(wrapId, topId, dividerId, handleId) {
+  const wrap    = document.getElementById(wrapId);
+  const top     = document.getElementById(topId);
+  const divider = document.getElementById(dividerId);
+  const handle  = document.getElementById(handleId);
+  if (!wrap) return;
+  let dragging  = false;
+
+  function setPos(pct) {
+    pct = Math.max(2, Math.min(98, pct));
+    top.style.width    = pct + '%';
+    divider.style.left = pct + '%';
+    handle.style.left  = pct + '%';
+  }
+
+  function onMove(clientX) {
+    const rect = wrap.getBoundingClientRect();
+    setPos((clientX - rect.left) / rect.width * 100);
+  }
+
+  wrap.addEventListener('mousedown',  e => { dragging = true; onMove(e.clientX); });
+  wrap.addEventListener('touchstart', e => { dragging = true; onMove(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('mousemove',  e => { if (dragging) onMove(e.clientX); });
+  window.addEventListener('touchmove',  e => { if (dragging) onMove(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('mouseup',  () => dragging = false);
+  window.addEventListener('touchend', () => dragging = false);
+}
+
+makeImgCurtain('img-curtain1', 'img-curtain-top1', 'img-curtain-divider1', 'img-curtain-handle1');
+makeImgCurtain('img-curtain2', 'img-curtain-top2', 'img-curtain-divider2', 'img-curtain-handle2');
+makeImgCurtain('img-curtain3', 'img-curtain-top3', 'img-curtain-divider3', 'img-curtain-handle3');
+makeImgCurtain('img-curtain4', 'img-curtain-top4', 'img-curtain-divider4', 'img-curtain-handle4');
+</script>
 
 <!-- ── OVERVIEW ───────────────────────────────────────── -->
 <section class="section">
