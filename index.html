@@ -164,7 +164,7 @@
 
           <h1 class="title is-1 publication-title">
             <span class="dzip">Depth.zip</span>
-            <span class="tag-badge">CVPR 2026 Demo Proposal</span>
+            <span class="tag-badge">CVPR 2026 Demo</span>
           </h1>
           <h2 class="title is-3" style="margin-top: 0.4em; color: #4a4a4a;">
             Real-Time Monocular Depth Estimation on Mobile Devices
@@ -175,7 +175,7 @@
               <a href="https://fabiotosi92.github.io">Fabio Tosi</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://bartn8.github.io/">Luca Bartolomei</a><sup>1</sup>,
+              Luca Bartolomei<sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://mattpoggi.github.io">Matteo Poggi</a><sup>1</sup>,
@@ -199,10 +199,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline
-            style="max-height: 600px; width: auto; display: block; margin: 0 auto;">
-        <source src="./static/videos/iphone.mp4" type="video/mp4">
-      </video>
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video> -->
+      <div class="placeholder-video">
+        [ Hero video — live depth on iPhone · placeholder ]
+      </div>
       <h2 class="subtitle has-text-centered" style="margin-top: 1.2em;">
         <span class="dzip">Depth.zip</span> estimates depth from a single image
         <strong>in real time, directly on your iPhone</strong> —
@@ -212,168 +214,35 @@
   </div>
 </section>
 
-<!-- ── CAROUSEL WITH IMAGE CURTAIN SLIDERS ────────────── -->
+<!-- ── CAROUSEL ───────────────────────────────────────── -->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-
-        <!-- ITEM 1 -->
         <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain1" style="height:320px;">
-            <img src="./static/images/29768273053_b2f1a7b7ca_h_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top1">
-              <img src="./static/images/29768273053_b2f1a7b7ca_h.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider1"></div>
-            <div class="curtain-handle"  id="img-curtain-handle1"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
+          <div class="placeholder-video" style="min-height: 220px;">
+            [ Indoor scene · placeholder ]
           </div>
         </div>
-
-        <!-- ITEM 2 -->
         <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain2" style="height:320px;">
-            <img src="./static/images/48768161487_a308a4a625_k_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top2">
-              <img src="./static/images/48768161487_a308a4a625_k.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider2"></div>
-            <div class="curtain-handle"  id="img-curtain-handle2"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
+          <div class="placeholder-video" style="min-height: 220px;">
+            [ Outdoor scene · placeholder ]
           </div>
         </div>
-
-        <!-- ITEM 3 -->
         <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain3" style="height:320px;">
-            <img src="./static/images/50732167143_d0794e813d_k_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top3">
-              <img src="./static/images/50732167143_d0794e813d_k.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider3"></div>
-            <div class="curtain-handle"  id="img-curtain-handle3"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
+          <div class="placeholder-video" style="min-height: 220px;">
+            [ Driving scene · placeholder ]
           </div>
         </div>
-
-        <!-- ITEM 4 -->
         <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain4" style="height:320px;">
-            <img src="./static/images/indoor_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top4">
-              <img src="./static/images/indoor_rgb.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider4"></div>
-            <div class="curtain-handle"  id="img-curtain-handle4"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
+          <div class="placeholder-video" style="min-height: 220px;">
+            [ Close-up objects · placeholder ]
           </div>
         </div>
-
-        <!-- ITEM 5 -->
-        <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain5" style="height:320px;">
-            <img src="./static/images/19077836444_cd241b92e3_k_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top5">
-              <img src="./static/images/19077836444_cd241b92e3_k.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider5"></div>
-            <div class="curtain-handle"  id="img-curtain-handle5"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
-          </div>
-        </div>
-
-        <!-- ITEM 6 -->
-        <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain6" style="height:320px;">
-            <img src="./static/images/21633193028_007032a782_k_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top6">
-              <img src="./static/images/21633193028_007032a782_k.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider6"></div>
-            <div class="curtain-handle"  id="img-curtain-handle6"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
-          </div>
-        </div>
-
-
-        <!-- ITEM 7 -->
-        <div class="item">
-          <div class="curtain-wrap img-curtain" id="img-curtain6" style="height:320px;">
-            <img src="./static/images/52895713818_2ec55fe959_k_depth.jpg"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            <div class="curtain-top" id="img-curtain-top6">
-              <img src="./static/images/52895713818_2ec55fe959_k.jpg"
-                   style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="curtain-divider" id="img-curtain-divider6"></div>
-            <div class="curtain-handle"  id="img-curtain-handle6"></div>
-            <span class="curtain-label-left">RGB</span>
-            <span class="curtain-label-right">Depth</span>
-          </div>
-        </div>
-
-
       </div>
     </div>
   </div>
 </section>
-
-<script>
-function makeImgCurtain(wrapId, topId, dividerId, handleId) {
-  const wrap    = document.getElementById(wrapId);
-  const top     = document.getElementById(topId);
-  const divider = document.getElementById(dividerId);
-  const handle  = document.getElementById(handleId);
-  if (!wrap) return;
-
-  function setPos(pct) {
-    pct = Math.max(2, Math.min(98, pct));
-    top.style.width    = pct + '%';
-    divider.style.left = pct + '%';
-    handle.style.left  = pct + '%';
-  }
-
-  function onMove(clientX) {
-    const rect = wrap.getBoundingClientRect();
-    setPos((clientX - rect.left) / rect.width * 100);
-  }
-
-  /* hover — nessun click richiesto */
-  wrap.addEventListener('mousemove', e => onMove(e.clientX));
-
-  /* touch — serve touchmove per mobile */
-  wrap.addEventListener('touchmove', e => {
-    e.preventDefault();
-    onMove(e.touches[0].clientX);
-  }, {passive: false});
-}
-
-makeImgCurtain('img-curtain1', 'img-curtain-top1', 'img-curtain-divider1', 'img-curtain-handle1');
-makeImgCurtain('img-curtain2', 'img-curtain-top2', 'img-curtain-divider2', 'img-curtain-handle2');
-makeImgCurtain('img-curtain3', 'img-curtain-top3', 'img-curtain-divider3', 'img-curtain-handle3');
-makeImgCurtain('img-curtain4', 'img-curtain-top4', 'img-curtain-divider4', 'img-curtain-handle4');
-makeImgCurtain('img-curtain5', 'img-curtain-top5', 'img-curtain-divider5', 'img-curtain-handle5');
-makeImgCurtain('img-curtain6', 'img-curtain-top6', 'img-curtain-divider6', 'img-curtain-handle6');
-</script>
 
 <!-- ── OVERVIEW ───────────────────────────────────────── -->
 <section class="section">
@@ -443,57 +312,7 @@ makeImgCurtain('img-curtain6', 'img-curtain-top6', 'img-curtain-divider6', 'img-
   </div>
 </section>
 
-<!-- ── SLIDER 1 — DRIVING ─────────────────────────────── -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">RGB vs. Depth — Driving</h2>
-    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
-      <p>Drag the slider to reveal the RGB image or the predicted depth map.</p>
-    </div>
-    <div class="curtain-wrap" id="curtain2">
-      <video id="vid-depth2" autoplay muted loop playsinline>
-        <source src="./static/videos/rome_depth.mp4" type="video/mp4">
-      </video>
-      <div class="curtain-top" id="curtain-top2">
-        <video id="vid-rgb2" autoplay muted loop playsinline>
-          <source src="./static/videos/rome_rgb.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="curtain-divider" id="curtain-divider2"></div>
-      <div class="curtain-handle"  id="curtain-handle2"></div>
-      <span class="curtain-label-left">RGB</span>
-      <span class="curtain-label-right">Depth</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- ── SLIDER 3 — NIGHTTIME ───────────────────────────── -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">RGB vs. Depth — Nighttime</h2>
-    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
-      <p>Robust depth estimation even under challenging low-light conditions.</p>
-    </div>
-    <div class="curtain-wrap" id="curtain3">
-      <video id="vid-depth3" autoplay muted loop playsinline>
-        <source src="./static/videos/night_depth.mp4" type="video/mp4">
-      </video>
-      <div class="curtain-top" id="curtain-top3">
-        <video id="vid-rgb3" autoplay muted loop playsinline>
-          <source src="./static/videos/night_rgb.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="curtain-divider" id="curtain-divider3"></div>
-      <div class="curtain-handle"  id="curtain-handle3"></div>
-      <span class="curtain-label-left">RGB</span>
-      <span class="curtain-label-right">Depth</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- ── SLIDER 2 — OUTDOOR ─────────────────────────────── -->
+<!-- ── SLIDER 1 — OUTDOOR ─────────────────────────────── -->
 <section class="section" style="background: #fafafa;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">RGB vs. Depth — Outdoor</h2>
@@ -517,11 +336,32 @@ makeImgCurtain('img-curtain6', 'img-curtain-top6', 'img-curtain-divider6', 'img-
   </div>
 </section>
 
+<!-- ── SLIDER 2 — DRIVING ─────────────────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">RGB vs. Depth — Driving</h2>
+    <div class="content has-text-centered" style="margin-bottom: 1.5em;">
+      <p>Drag the slider to reveal the RGB image or the predicted depth map.</p>
+    </div>
+    <div class="curtain-wrap" id="curtain2">
+      <video id="vid-depth2" autoplay muted loop playsinline>
+        <source src="./static/videos/rome_depth.mp4" type="video/mp4">
+      </video>
+      <div class="curtain-top" id="curtain-top2">
+        <video id="vid-rgb2" autoplay muted loop playsinline>
+          <source src="./static/videos/rome_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="curtain-divider" id="curtain-divider2"></div>
+      <div class="curtain-handle"  id="curtain-handle2"></div>
+      <span class="curtain-label-left">RGB</span>
+      <span class="curtain-label-right">Depth</span>
+    </div>
+  </div>
+</section>
 
 <!-- ── CURTAIN SLIDER LOGIC ───────────────────────────── -->
 <script>
-let activeCurtain = null;
-
 function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   const wrap     = document.getElementById(wrapId);
   const top      = document.getElementById(topId);
@@ -529,6 +369,7 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   const handle   = document.getElementById(handleId);
   const vidRgb   = document.getElementById(rgbId);
   const vidDepth = document.getElementById(depthId);
+  let dragging   = false;
 
   function setPos(pct) {
     pct = Math.max(2, Math.min(98, pct));
@@ -542,23 +383,12 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
     setPos((clientX - rect.left) / rect.width * 100);
   }
 
-  wrap.addEventListener('mousedown', e => {
-    activeCurtain = wrapId;
-    onMove(e.clientX);
-  });
-  wrap.addEventListener('touchstart', e => {
-    activeCurtain = wrapId;
-    onMove(e.touches[0].clientX);
-  }, {passive: true});
-
-  window.addEventListener('mousemove', e => {
-    if (activeCurtain === wrapId) onMove(e.clientX);
-  });
-  window.addEventListener('touchmove', e => {
-    if (activeCurtain === wrapId) onMove(e.touches[0].clientX);
-  }, {passive: true});
-  window.addEventListener('mouseup',  () => { if (activeCurtain === wrapId) activeCurtain = null; });
-  window.addEventListener('touchend', () => { if (activeCurtain === wrapId) activeCurtain = null; });
+  wrap.addEventListener('mousedown',  e => { dragging = true; onMove(e.clientX); });
+  wrap.addEventListener('touchstart', e => { dragging = true; onMove(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('mousemove',  e => { if (dragging) onMove(e.clientX); });
+  window.addEventListener('touchmove',  e => { if (dragging) onMove(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('mouseup',  () => dragging = false);
+  window.addEventListener('touchend', () => dragging = false);
 
   vidDepth.addEventListener('timeupdate', () => {
     if (Math.abs(vidRgb.currentTime - vidDepth.currentTime) > 0.1)
@@ -566,10 +396,45 @@ function makeCurtain(wrapId, topId, dividerId, handleId, rgbId, depthId) {
   });
 }
 
-makeCurtain('curtain2', 'curtain-top2', 'curtain-divider2', 'curtain-handle2', 'vid-rgb2', 'vid-depth2');
-makeCurtain('curtain3', 'curtain-top3', 'curtain-divider3', 'curtain-handle3', 'vid-rgb3', 'vid-depth3');
 makeCurtain('curtain1', 'curtain-top1', 'curtain-divider1', 'curtain-handle1', 'vid-rgb1', 'vid-depth1');
+makeCurtain('curtain2', 'curtain-top2', 'curtain-divider2', 'curtain-handle2', 'vid-rgb2', 'vid-depth2');
 </script>
+
+<!-- ── QUALITATIVE RESULTS ────────────────────────────── -->
+<section class="section" style="background: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+    <div class="columns is-centered" style="margin-top: 1em;">
+      <div class="column">
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_indoor.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Indoor · placeholder ]
+        </div>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Indoor</p>
+      </div>
+      <div class="column">
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_outdoor.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Outdoor · placeholder ]
+        </div>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Outdoor</p>
+      </div>
+      <div class="column">
+        <!-- <video autoplay muted loop playsinline>
+          <source src="./static/videos/qual_driving.mp4" type="video/mp4">
+        </video> -->
+        <div class="placeholder-video" style="min-height: 200px;">
+          [ Driving · placeholder ]
+        </div>
+        <p class="has-text-centered" style="margin-top: 0.5em; color: #888;">Driving</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── FOOTER ─────────────────────────────────────────── -->
 <footer class="footer">
@@ -580,7 +445,7 @@ makeCurtain('curtain1', 'curtain-top1', 'curtain-divider1', 'curtain-handle1', '
           <p style="color: #aaa; font-size: 0.85rem;">
             Website template from
             <a href="https://github.com/nerfies/nerfies.github.io" style="color: #aaa;">Nerfies</a>.
-            CVPR 2026 Demo Proposal &mdash; University of Bologna.
+            CVPR 2026 Demo &mdash; University of Bologna.
           </p>
         </div>
       </div>
